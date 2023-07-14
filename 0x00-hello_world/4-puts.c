@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
-* main - Entry point
-* 
+* main - 4-puts.c
+* Description - Write a C program that prints exactly.
 * Return: Always 0 (Success)
 */
 int main(void)
