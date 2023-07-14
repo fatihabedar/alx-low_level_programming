@@ -1,3 +1,4 @@
+#!/bin/bash
 #include <stdio.h>
 /**
  * mai- Entry point
