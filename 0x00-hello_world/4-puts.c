@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * mai- Entry point
+ * mai - Entry point
  * 
- * return: Always 0 (success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
