@@ -1,9 +1,8 @@
-#!/bin/bash
 #include <stdio.h>
 /**
  * mai- Entry point
  * 
- * return: Always (success
+ * return: Always 0 (success)
  * /
 int main(void)
 {
