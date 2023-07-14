@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-* main - 6-size.c
+* main -6-size.c:4
 * description - Write a C program that prints the size of various types on the computer it is compiled and run on.
 * Return: Always 0 (Success)
 */
