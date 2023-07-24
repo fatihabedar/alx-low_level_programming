@@ -1,22 +1,25 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _strcpy - Copiar el contenido de uno a otra variable
- * @dest: This is destiny
- * @src: This is the copia
- *
- * Return: This return copy
+ * char *_strcpy - a function that copies the string pointed to by src
+ * @dest: copy to
+ * @src: copy from
+ * Return: string
  */
 char *_strcpy(char *dest, char *src)
 {
-	char *start = dest;
+	int l = 0;
+	int x = 0;
 
-	while (*src != '\0')
+	while (*(src + l) != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		l++;
 	}
-	*dest = '\0';
-	return (start);
+	for ( ; x < l ; x++)
+	{
+		dest[x] = src[x];
+	}
+	dest[l] = '\0';
+	return (dest);
 }
+
