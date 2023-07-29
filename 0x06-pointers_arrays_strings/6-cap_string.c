@@ -1,36 +1,36 @@
-#include "holberton.h"
-/**
- * cap_string - capitalizes most of the words in a string.
- * @s: analized string.
- *
- * Return: String with all words capitalized.
- */
-char *cap_string(char *s)
-{
-	int i, j;
-	int a[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+#include <stdio.h>
+#include <ctype.h>
 
-	i = 0;
-	while (*(s + i) != '\0')
-	{
-		if (*(s + i) >= 'a' && *(s + i) <= 'z')
-		{
-			if (i == 0)
-			{
-				*(s + i) = *(s + i) - 32;
-			}
-			else
-			{
-				for (j = 0; j <= 12; j++)
-				{
-					if (a[j] == *(s + i - 1))
-					{
-						*(s + i) = *(s + i) - 32;
-					}
-				}
-			}
-		}
-	i++;
-	}
-	return (s);
+char *cap_string(char *str) {
+    int capitalize_next = 1; // Start with capitalizing the first letter
+    char *current = str;
+
+    while (*current != '\0') {
+        if (capitalize_next && islower(*current)) {
+            *current = toupper(*current); // Capitalize the letter
+        }
+
+        // Update capitalize_next based on the separators
+        if (*current == ' ' || *current == '\t' || *current == '\n' ||
+            *current == ',' || *current == ';' || *current == '.' ||
+            *current == '!' || *current == '?' || *current == '"' ||
+            *current == '(' || *current == ')' || *current == '{' ||
+            *current == '}') {
+            capitalize_next = 1;
+        } else {
+            capitalize_next = 0;
+        }
+
+        current++;
+    }
+
+    return str;
 }
+
+int main() {
+    char input[] = "hello, world! how are you? this is a test.";
+    printf("Before: %s\n", input);
+    printf("After: %s\n", cap_string(input));
+    return 0;
+}
+
