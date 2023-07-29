@@ -1,36 +1,38 @@
-#include <stdio.h>
-#include <ctype.h>
+#include "main.h"
 
-char *cap_string(char *str) {
-    int capitalize_next = 1; // Start with capitalizing the first letter
-    char *current = str;
+/**
+ * cap_string - Capitalizes all words of a string.
+ * @str: The string to be capitalized.
+ *
+ * Return: A pointer to the changed string.
+ */
+char *cap_string(char *str)
+{
+	int index = 0;
 
-    while (*current != '\0') {
-        if (capitalize_next && islower(*current)) {
-            *current = toupper(*current); // Capitalize the letter
-        }
+	while (str[index])
+	{
+		while (!(str[index] >= 'a' && str[index] <= 'z'))
+			index++;
 
-        // Update capitalize_next based on the separators
-        if (*current == ' ' || *current == '\t' || *current == '\n' ||
-            *current == ',' || *current == ';' || *current == '.' ||
-            *current == '!' || *current == '?' || *current == '"' ||
-            *current == '(' || *current == ')' || *current == '{' ||
-            *current == '}') {
-            capitalize_next = 1;
-        } else {
-            capitalize_next = 0;
-        }
+		if (str[index - 1] == ' ' ||
+		    str[index - 1] == '\t' ||
+		    str[index - 1] == '\n' ||
+		    str[index - 1] == ',' ||
+		    str[index - 1] == ';' ||
+		    str[index - 1] == '.' ||
+		    str[index - 1] == '!' ||
+		    str[index - 1] == '?' ||
+		    str[index - 1] == '"' ||
+		    str[index - 1] == '(' ||
+		    str[index - 1] == ')' ||
+		    str[index - 1] == '{' ||
+		    str[index - 1] == '}' ||
+		    index == 0)
+			str[index] -= 32;
 
-        current++;
-    }
+		index++;
+	}
 
-    return str;
+	return (str);
 }
-
-int main() {
-    char input[] = "hello, world! how are you? this is a test.";
-    printf("Before: %s\n", input);
-    printf("After: %s\n", cap_string(input));
-    return 0;
-}
-
